@@ -1,6 +1,5 @@
 import requests
 from bs4 import BeautifulSoup
-import re
 
 # Send request to fetch data
 response = requests.get('https://hckrnews.com/')
@@ -11,8 +10,7 @@ soup = BeautifulSoup(response.text, 'html.parser')
 # Select a special tag that we need --> and use attributes to find that exactly
 data = soup('a', attrs={'class':'link'})
 
-# Print Data in a file
-f = open('news.txt', 'w+')
+# Print Data
 counter = 0
 for title in data:
     counter += 1
